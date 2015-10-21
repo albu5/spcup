@@ -27,6 +27,8 @@ for label  = labels'
    end
    
    i = i+1;
-   cd ../..
+   cd ..\..
    
 end
+
+cd ..\matlab
