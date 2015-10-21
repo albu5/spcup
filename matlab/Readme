@@ -1,0 +1,6 @@
+This folder contains matlab scripts and functions to process data.
+
+Contents:
+enf.m : computes enf using music method
+enf_minnorm.m : computes enf using minorm method, described in minnorm.m
+minnorm.m : implements minnorm method using covarinace method
