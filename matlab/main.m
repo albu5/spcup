@@ -20,9 +20,9 @@ plot(linspace(0, 1e3, n), abs(fft(v(1:n))));
 k = enf(uf, 1e3, 1000, 500, 0.08*pi, 0.14*pi, 2^13);
 
 %%
-enf_rootmusic(u, 1e3, 8192, 4096, 0.16);
+enf_rootmusic(u1, 1e3, 8192, 4096, 0.16);
 figure
-enf_rootmusic(v, 1e3, 8192, 4096, 0.16);
+enf_rootmusic(v1, 1e3, 8192, 4096, 0.16);
 
 
 
@@ -33,11 +33,12 @@ enf_fft(v, 1e3, 8192, 4096, 2^18, 0.08);
 
 
 %% spectograms
-spectrogram(u,8192, 4096, 1000, 'yaxis');
+spectrogram(u1,8192, 4096,1000, 'yaxis');
 colormap bone
 figure
-spectrogram(v,8192, 4096, 1000, 'yaxis');
+spectrogram(v1,8192, 4096,1000, 'yaxis');
 colormap bone
+
 
 %% ffft plot
 
@@ -65,3 +66,38 @@ figure
 plot(linspace(0,1000, 2^20), abs(fft(v(1:8192), 2^20)));
 
 
+%%
+y = spHpsTrack(v1, 1e3, 8192, 4096, 2^20);
+y1 = spHpsTrack(u1, 1e3, 8192, 4096, 2^20);
+
+n = numel(y);
+n1 = numel(y1);
+
+t = linspace(0,4096*n/1000, n);
+t1 = linspace(0,4096*n1/1000, n1);
+
+%%
+plot(t,y)
+xlabel('Time in seconds')
+ylabel('ENF estimate in Hz')
+title('Audio Signal ENF')
+figure
+plot(t1,y1)
+xlabel('Time in seconds')
+ylabel('ENF estimate in Hz')
+title('Power Signal ENF')
+
+%%
+
+%%
+a_home_s = spHpsTrack(a_home(1:1000000), 1e3, 8192, 4096, 2^20);
+p_home_s = spHpsTrack(p_home(1:1000000), 1e3, 8192, 4096, 2^20);
+
+a_school_1_s = spHpsTrack(a_school_1(1:1000000), 1e3, 8192, 4096, 2^20);
+p_school_1_s = spHpsTrack(p_school_1(1:1000000), 1e3, 8192, 4096, 2^20);
+
+a_school_2_s = spHpsTrack(a_school_2(1:1000000), 1e3, 8192, 4096, 2^20);
+p_school_2_s = spHpsTrack(p_school_2(1:1000000), 1e3, 8192, 4096, 2^20);
+
+a_school_3_s = spHpsTrack(a_school_3(1:1000000), 1e3, 8192, 4096, 2^20);
+p_school_3_s = spHpsTrack(p_school_3(1:1000000), 1e3, 8192, 4096, 2^20);
