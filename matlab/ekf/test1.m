@@ -11,7 +11,7 @@ h = @harmh;
 
 fs = 1e3;
 nominal_freq = 60;
-filename = 'C:\Users\Ashish\OneDrive\spcup\datasets\Grid_A\Power_recordings\Train_Grid_A_P1';
+filename = 'C:\Users\Ashish\OneDrive\spcup\datasets\Grid_A\Power_recordings\Train_Grid_A_P5';
 
 
 w0 = 2*pi*nominal_freq/fs;
