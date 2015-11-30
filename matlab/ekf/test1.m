@@ -10,11 +10,30 @@ f = @harmf;
 h = @harmh;
 
 fs = 1e3;
+
+% frequencies for grids, change nominal_freq accordingly
+% A 60
+% B 50
+% C 60
+% D 50
+% E 50
+% F 50
+% G 50
+% H 50
+% I 60
 nominal_freq = 50;
+
 w0 = 2*pi*nominal_freq/fs;
 
+% change this to folder of power recording of your assigned grid
 data_dir = 'C:\Users\Ashish\OneDrive\spcup\datasets\Grid_C\Power_recordings\';
+
+% change this to whereever test1.m is (spcup/matlab/ekf)
 mat_dir = 'C:\Users\Ashish\OneDrive\spcup\matlab\ekf\';
+
+% now run this script. make sure uto hibernate/sleep/shut don is turned off.
+% push changes into github
+
 
 cd(data_dir)
 files = dir('*.wav');
