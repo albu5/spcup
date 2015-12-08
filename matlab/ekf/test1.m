@@ -26,7 +26,7 @@ nominal_freq = 50;
 w0 = 2*pi*nominal_freq/fs;
 
 % change this to folder of power recording of your assigned grid
-data_dir = 'C:\Users\Ashish\OneDrive\spcup\datasets\Grid_C\Power_recordings\';
+data_dir = 'C:\Users\Ashish\OneDrive\spcup\datasets\Grid_G\Power_recordings\';
 
 % change this to whereever test1.m is (spcup/matlab/ekf)
 mat_dir = 'C:\Users\Ashish\OneDrive\spcup\matlab\ekf\';
