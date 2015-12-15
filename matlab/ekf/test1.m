@@ -21,12 +21,12 @@ fs = 1e3;
 % G 50
 % H 50
 % I 60
-nominal_freq = 50;
+nominal_freq = 60;
 
 w0 = 2*pi*nominal_freq/fs;
 
 % change this to folder of power recording of your assigned grid
-data_dir = 'C:\Users\Ashish\OneDrive\spcup\datasets\Grid_G\Power_recordings\';
+data_dir = 'C:\Users\Ashish\OneDrive\spcup\datasets\Grid_C\Power_recordings\';
 
 % change this to whereever test1.m is (spcup/matlab/ekf)
 mat_dir = 'C:\Users\Ashish\OneDrive\spcup\matlab\ekf\';
@@ -46,7 +46,7 @@ for file = files'
     data = audioread([data_dir filename]);
 
     % data = audioread([filename '.wav']);
-%     data = data(1:10000);
+%     data = data(1:20000);
     
     if mean(data(1:2))>0.25
         phase_init = pi;
@@ -75,7 +75,8 @@ for file = files'
             display(num2str(100*r));
         end
     end
-    
     enf = (0.5*fs/pi)*X;
     save([data_dir filename(1:end-4) '_enf'], 'enf');
+%     plot(enf);
+%     break;
 end
