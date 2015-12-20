@@ -39,7 +39,19 @@ for l = 1:length(arr)
     end
 end
 
+data = feature_m(:,2:end);
+labels = feature_m(:,1);
+nomf = data(:,1);
 
+f50 = nomf<55;
+f60 = nomf>55;
 
+data50 = data(f50, :);
+data60 = data(f60, :);
+label50 = labels(f50);
+label60 = labels(f60);
 
-
+data50 = array2table(data50);
+data60 = array2table(data60);
+data50.class = categorical(label50);
+data60.class = categorical(label60);
