@@ -1,4 +1,4 @@
-function f = nominalf(varargin)
+function [nominalfreq, enf] = enf_auto(varargin)
 %%
 % Inputs:   f: function handle for f(x)
 %           x: "a priori" state estimate
@@ -87,5 +87,14 @@ display((0.5*fs/pi)*mean(X1))
 display(P2)
 display((0.5*fs/pi)*mean(X2))
 
-% enf = (0.5*fs/pi)*X;
-% save([data_dir filename(1:end-4) '_enf'], 'enf');
+figure
+subplot(1, 2, 1), plot((0.5*fs/pi)*X1)
+subplot(1, 2, 2), plot((0.5*fs/pi)*X2)
+
+if sum(diag(P1))>sum(diag(P2))
+    enf = (0.5*fs/pi)*X2;
+    nominalfreq = (0.5*fs/pi)*mean(X2);
+else
+    enf = (0.5*fs/pi)*X1;
+    nominalfreq = (0.5*fs/pi)*mean(X1);
+end
