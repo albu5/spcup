@@ -1,0 +1,14 @@
+function feature_m = feature_vec(K)
+feature_m = [];
+feature_m(1,1) = mean(K);
+feature_m(1,2) = log(max(K)-min(K));
+[C,L] = wavedec(K,4,'db1');
+feature_m(1,3) = var(C(1:L(1)));
+feature_m(1,4) = var(C(L(1)+1:L(1)+L(2)));
+feature_m(1,5) = var(C(L(1)+L(2)+1:L(1)+L(2)+L(3)));
+feature_m(1,6) = var(C(L(1)+L(2)+L(3)+1:L(1)+L(2)+L(3)+L(4)));
+feature_m(1,7) = var(C(L(1)+L(2)+L(3)+L(4)+1:L(6)));
+m = ar(K,2);
+feature_m(1,8) = m.a(2);
+feature_m(1,9) = m.a(3);
+feature_m(1,10) = m.NoiseVariance;
